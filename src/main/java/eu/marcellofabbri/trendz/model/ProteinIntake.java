@@ -30,4 +30,24 @@ public class ProteinIntake implements Serializable {
     protected ProteinIntake() {
     }
 
+    public int getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(int measurement) {
+        this.measurement = measurement;
+    }
+
+    public OffsetDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(OffsetDateTime date) {
+        this.date = date;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
 }
