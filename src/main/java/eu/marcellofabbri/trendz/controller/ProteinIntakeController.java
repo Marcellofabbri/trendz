@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import eu.marcellofabbri.trendz.model.ProteinIntake;
 import eu.marcellofabbri.trendz.repository.ProteinIntakeRepository;
 
-@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 
@@ -29,7 +28,7 @@ public class ProteinIntakeController {
     @Autowired
     ProteinIntakeRepository proteinIntakeRepository;
 
-    @GetMapping("/intakes")
+    @GetMapping("intakes")
     public List<ProteinIntake> getAllIntakes() {
         System.out.println("getting all intakes... ");
 
@@ -39,7 +38,7 @@ public class ProteinIntakeController {
         return list;
     }
 
-    @PostMapping("intakes/create")
+    @PostMapping("intakes")
     public ProteinIntake createIntake(@RequestBody ProteinIntake proteinIntake) {
         System.out.println("Creating record " + proteinIntake.getMeasurement() + "... ");
 
@@ -65,7 +64,7 @@ public class ProteinIntakeController {
         Optional<ProteinIntake> intakeData = proteinIntakeRepository.findById(id);
         if (intakeData.isPresent()) {
             ProteinIntake savedIntake = intakeData.get();
-            savedIntake.setDate(proteinIntake.getDate());
+            savedIntake.setCreatedAt(proteinIntake.getCreatedAt());
             savedIntake.setMeasurement(proteinIntake.getMeasurement());
 
             ProteinIntake updatedIntake = proteinIntakeRepository.save(savedIntake);

@@ -11,18 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "proteinIntake")
+@Table (name = "protein_intake")
 
 public class ProteinIntake implements Serializable {
-
-    private final static long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column (name = "date")
-    private OffsetDateTime date;
+    @Column (name = "createdAt")
+    private OffsetDateTime createdAt;
 
     @Column (name = "measurement")
     private int measurement;
@@ -38,12 +36,12 @@ public class ProteinIntake implements Serializable {
         this.measurement = measurement;
     }
 
-    public OffsetDateTime getDate() {
-        return date;
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDate(OffsetDateTime date) {
-        this.date = date;
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
