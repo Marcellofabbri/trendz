@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import eu.marcellofabbri.trendz.model.dto.ProteinIntakeRequestCreate;
+import eu.marcellofabbri.trendz.model.dto.ProteinIntakeResponse;
+import eu.marcellofabbri.trendz.service.IntakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import eu.marcellofabbri.trendz.model.ProteinIntake;
+import eu.marcellofabbri.trendz.model.entity.ProteinIntake;
 import eu.marcellofabbri.trendz.repository.ProteinIntakeRepository;
 
 @RestController
@@ -27,6 +29,9 @@ public class ProteinIntakeController {
 
     @Autowired
     ProteinIntakeRepository proteinIntakeRepository;
+
+    @Autowired
+    IntakeService intakeService;
 
     @GetMapping("intakes")
     public List<ProteinIntake> getAllIntakes() {
@@ -39,10 +44,8 @@ public class ProteinIntakeController {
     }
 
     @PostMapping("intakes")
-    public ProteinIntake createIntake(@RequestBody ProteinIntake proteinIntake) {
-        System.out.println("Creating record " + proteinIntake.getMeasurement() + "... ");
-
-        return proteinIntakeRepository.save(proteinIntake);
+    public ProteinIntakeResponse createIntake(@RequestBody ProteinIntakeRequestCreate request) {
+       return intakeService.createIntake(request);
     }
 
     @GetMapping("/intakes/{id}")

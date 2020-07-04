@@ -1,4 +1,4 @@
-package eu.marcellofabbri.trendz.model;
+package eu.marcellofabbri.trendz.model.entity;
  
 import java.io.Serializable;
 import java.time.OffsetDateTime;
@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class ProteinIntake implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column (name = "createdAt")
@@ -25,7 +25,12 @@ public class ProteinIntake implements Serializable {
     @Column (name = "measurement")
     private int measurement;
 
-    protected ProteinIntake() {
+    public ProteinIntake() {
+    }
+
+    public ProteinIntake(OffsetDateTime createdAt, int measurement) {
+        this.createdAt = createdAt;
+        this.measurement = measurement;
     }
 
     public int getMeasurement() {
