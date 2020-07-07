@@ -1,4 +1,4 @@
-package eu.marcellofabbri.trendz;
+package trendz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

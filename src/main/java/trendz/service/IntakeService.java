@@ -1,9 +1,9 @@
-package eu.marcellofabbri.trendz.service;
+package trendz.service;
 
-import eu.marcellofabbri.trendz.model.dto.ProteinIntakeRequestCreate;
-import eu.marcellofabbri.trendz.model.dto.ProteinIntakeResponse;
-import eu.marcellofabbri.trendz.model.entity.ProteinIntake;
-import eu.marcellofabbri.trendz.repository.ProteinIntakeRepository;
+import trendz.model.dto.ProteinIntakeRequestCreate;
+import trendz.model.dto.ProteinIntakeResponse;
+import trendz.model.entity.ProteinIntake;
+import trendz.repository.ProteinIntakeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

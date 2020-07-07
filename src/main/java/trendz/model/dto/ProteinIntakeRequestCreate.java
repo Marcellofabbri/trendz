@@ -1,9 +1,7 @@
-package eu.marcellofabbri.trendz.model.dto;
+package trendz.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sun.istack.NotNull;
-import org.springframework.lang.NonNull;
 
 import java.time.OffsetDateTime;
 

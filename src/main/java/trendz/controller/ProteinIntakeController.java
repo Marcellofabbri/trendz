@@ -1,12 +1,12 @@
-package eu.marcellofabbri.trendz.controller;
+package trendz.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import eu.marcellofabbri.trendz.model.dto.ProteinIntakeRequestCreate;
-import eu.marcellofabbri.trendz.model.dto.ProteinIntakeResponse;
-import eu.marcellofabbri.trendz.service.IntakeService;
+import trendz.model.dto.ProteinIntakeRequestCreate;
+import trendz.model.dto.ProteinIntakeResponse;
+import trendz.service.IntakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import eu.marcellofabbri.trendz.model.entity.ProteinIntake;
-import eu.marcellofabbri.trendz.repository.ProteinIntakeRepository;
+import trendz.model.entity.ProteinIntake;
+import trendz.repository.ProteinIntakeRepository;
 
 @RestController
 @RequestMapping("/api")
@@ -35,7 +35,6 @@ public class ProteinIntakeController {
 
     @GetMapping("intakes")
     public List<ProteinIntake> getAllIntakes() {
-        System.out.println("getting all intakes... ");
 
         List<ProteinIntake> list = new ArrayList<>();
         Iterable<ProteinIntake> trackers = proteinIntakeRepository.findAll();
@@ -62,7 +61,6 @@ public class ProteinIntakeController {
 
     @PutMapping("/intakes/{id}")
     public ResponseEntity<ProteinIntake> updateIntake(@PathVariable("id") Long id, @RequestBody ProteinIntake proteinIntake) {
-        System.out.println("Updating record with id " + proteinIntake.getId() + "... ");
 
         Optional<ProteinIntake> intakeData = proteinIntakeRepository.findById(id);
         if (intakeData.isPresent()) {
@@ -79,7 +77,6 @@ public class ProteinIntakeController {
 
     @DeleteMapping("/intakes/{id}")
     public ResponseEntity<String> deleteIntake(@PathVariable("id") Long id) {
-        System.out.println("Delete intake with ID = " + id + "...");
 
         try {
             proteinIntakeRepository.deleteById(id);

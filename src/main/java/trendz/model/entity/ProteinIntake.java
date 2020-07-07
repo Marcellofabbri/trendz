@@ -1,4 +1,4 @@
-package eu.marcellofabbri.trendz.model.entity;
+package trendz.model.entity;
  
 import java.io.Serializable;
 import java.time.OffsetDateTime;

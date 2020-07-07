@@ -1,4 +1,4 @@
-package eu.marcellofabbri.trendz.model.dto;
+package trendz.model.dto;
 
 import java.time.OffsetDateTime;
 

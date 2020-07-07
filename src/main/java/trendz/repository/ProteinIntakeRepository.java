@@ -1,8 +1,8 @@
-package eu.marcellofabbri.trendz.repository;
+package trendz.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import eu.marcellofabbri.trendz.model.entity.ProteinIntake;
+import trendz.model.entity.ProteinIntake;
 
 public interface ProteinIntakeRepository extends CrudRepository<ProteinIntake, Long> {
  
